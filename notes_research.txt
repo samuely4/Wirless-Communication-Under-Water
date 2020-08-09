@@ -1,0 +1,91 @@
+device name
+baud rate
+destination ID
+transmission mode
+power level
+length of message (text file of sizes)
+number of messages
+how fast message is transmitted (the amount of time in seconds between messages)
+make sure support of #
+
+format of cofig file (each line):
+the name of parameters
+followed by the colon sign
+space (tab) and the value of the parameter
+
+
+path to the text file of data on the command line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+modify the thread that handles stdin----it does not read from keyboard
+it reads a file it encodes in ascii code and create a modem command
+
+
+processing on data recieved
+convert the recieved message from ascii to message
+debug mode---whatever you recieve from the modem (before processing), save them into file (logfile)
+
+save from whatever you recieve from the serial port put into a text file in format	date (time to milliseconds) colon then a new line  
+
+
+the range from space to ~ printable ascii code (displayed on the screen)
+
+
+
+
+the function cfmakeraw at the beginning of the program explanied at http://pubs.opengroup.org/onlinepubs/7908799/xsh/termios.h.html
+tcgetatrr return 0 if successful and -1 if not
+about tcsetatrr: https://support.sas.com/documentation/onlinedoc/sasc/doc/lr2/tsetatr.htm
+why do we do the edit of CLOCAL----why disable modem control lines
+about signal tests: https://stackoverflow.com/questions/27227585/what-is-sigaddset-used-for
+SIGINT and SIGTERM cannot occur while code for sigaction is running-----ask about that in the next meeting
+how does sigaction work---to provide examples following video on youtube https://www.youtube.com/watch?v=ahRBRGVTi5w
+https://www.youtube.com/watch?v=rggw61JtGz0
+
+
+sa_handler = pointer to a signal catching function
+sa_mask = additional set of signals to be blocked during the excution of signal catching function
+sa_flag = special flags to affect behavior of signal
+sa_sigaction = pointer to a signal catching function
+
+similar to signal() function, sigaction() function requires handler function
+
+void handler (int signum)
+	this is a function where we replace and change the signal
+	int signum passed from the sigaction () function will go to this handler
+
+note SIGINT means that control signal is pressed
+note SIGTERM mean signal termination
+
+difference between canonical and non canonical can be found at https://www.gnu.org/software/libc/manual/html_node/Canonical-or-Not.html
+
+from line 250 until line 280 need further explanation---next meeting
+
+SIG_UNBLOCK:
+The resulting set shall be the intersection of the current set and the complement of the signal set pointed to by set.
+
+SIG_BLOCK
+The resulting set shall be the union of the current set and the signal set pointed to by set.
+
+need more explanation about the above two.
+more help at http://pubs.opengroup.org/onlinepubs/009696799/functions/pthread_sigmask.html
+
+
