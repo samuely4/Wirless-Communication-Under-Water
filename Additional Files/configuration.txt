@@ -1,0 +1,12 @@
+#Destination ID: 0
+Dst:0
+#Transmission Mode: 2
+TxM:2
+#Power Level: 20
+PWL:20
+#length of Message: 12
+LoM:12
+#Number of Messages: 50
+NoM:50
+#Inter-Message Delay: 3
+IMD:3
